@@ -3,144 +3,150 @@
 
 $black: #111111;
 $black-2: #151515;
-$black-border: rgba(255,255,255,0.04);
+$black-border: rgba(255, 255, 255, 0.04);
 $header-height: 8.5rem;
 
 * {
-  margin-block-start: 0;
-  margin-block-end: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
 }
 
-ul, ul ul {
-  padding-inline-start: 0;
-  list-style: none;
+ul,
+ul ul {
+    padding-inline-start: 0;
+    list-style: none;
 }
 
 html {
-  box-sizing: border-box;
-  font-size: 9.2px;
-  font-family: "IBM Plex Sans", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  // font-smoothing: antialiased; check autoprefixer, it isn't working
+    box-sizing: border-box;
+    font-size: 9.2px;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    // font-smoothing: antialiased; check autoprefixer, it isn't working
 }
 
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: $header-height;
-  background-color: $black;
-}
-
-.header--visible-nav {
-  height: 100%;
-}
-
-.header__logo {
-  width: 13rem;
-  height: 3rem;
-}
-
-.header__nav {
-  display: none;
-  position: absolute;
-  top: $header-height;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-  overflow-y: scroll;
-  background-color: $black-2;
-  font-family: 'Heebo', sans-serif;
-  font-size: 2rem;
-  color: rgba(255,255,255,0.6);
-}
-
-.header__nav-list {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 4rem 4rem 0 4rem;
-  border-top: 1px solid $black-border;
-
-  &> li {
-    padding: 2rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    border-bottom: 1px dotted $black-border;
-    border-top: 1px dotted $black-border;
-  }
+    height: $header-height;
+    background-color: $black;
 
-  & a {
-    text-decoration: none;
-    color: inherit;
-  }
-}
+    &--visible-nav {
+        height: 100%;
+    }
 
-.header__nav--visible {
-  display: block;
-}
+    &__logo {
+        width: 13rem;
+        height: 3rem;
+    }
 
-.header__nav--current-page {
-  color: white;
-}
+    &__logo-container {
+        display: flex;
+        align-items: center;
+        padding: 3rem;
+    }
 
-.header__submenu {
-  display: block;
-  max-height: 0;
-  font-size: 1.2rem;
-  font-weight: 300;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  padding-left: 1.2rem;
-  transform: scaleY(0);
-  transform-origin: top;
-  transition: all 0.3s ease;
+    &__nav {
+        display: none;
+        position: absolute;
+        top: $header-height;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        overflow-y: scroll;
+        background-color: $black-2;
+        font-family: "Heebo", sans-serif;
+        font-size: 2rem;
+        color: rgba(255, 255, 255, 0.6);
 
-  &> li {
-    padding: 1.5rem 0;
-    width: 100%;
-  }
+        &--visible {
+            display: block;
+        }
 
-      &> li:first-of-type {
-      padding-top: 2rem + 1.5rem;
-  }
-    &> li:last-of-type {
-      padding-bottom: 2rem;
-  }
-}
+        &--current-page {
+            color: white;
+        }
+    }
 
-.header__submenu--visible {
-  max-height: 1000px;
-  transform: scaleY(1);
-}
+    &__nav-list {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 4rem 4rem 0 4rem;
+        border-top: 1px solid $black-border;
 
-.Header__logo-container {
-  display: flex;
-  align-items: center;
-  padding: 3rem;
-}
+        & > li {
+            width: 100%;
+            border-bottom: 1px dotted $black-border;
+            border-top: 1px dotted $black-border;
+        }
 
-.has-children {
-  &::before {
-    display: block;
-    float: right;
-    width: 1.6rem;
-    height: 1.6rem;
-    content: ' ';
-    background-image: url("./assets/arrow.svg");
-    background-size: 1.6rem 1.6rem;
-    margin-top: 0.5rem;
-    margin-right: 1rem;
-    transition: all 0.5s;
-  }
-}
+        & a {
+            display: block;
+            width: 100%;
+            padding: 2rem 0;
+            text-decoration: none;
+            color: inherit;
+        }
+    }
 
-.has-children--open {
-  &::before {
-    transform: rotate(180deg);
-  }
+    &__nav-sublist-head {
+        padding: 2rem 0;
+        cursor: pointer;
+
+        &--open {
+            &::before {
+                transform: rotate(180deg);
+            }
+        }
+
+        &::before {
+            display: block;
+            float: right;
+            width: 1.6rem;
+            height: 1.6rem;
+            content: " ";
+            background-image: url("./assets/arrow.svg");
+            background-size: 1.6rem 1.6rem;
+            margin-top: 0.5rem;
+            margin-right: 1rem;
+            transition: all 0.5s;
+        }
+    }
+
+    &__nav-sublist {
+        display: block;
+        max-height: 0;
+        font-size: 1.2rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        padding-left: 1.2rem;
+        transform: scaleY(0);
+        transform-origin: top;
+        transition: all 0.3s ease;
+
+        &--visible {
+            max-height: 1000px;
+            transform: scaleY(1);
+        }
+
+        & a {
+            padding: 1.5rem 0;
+        }
+
+        & > li:first-of-type {
+            padding-top: 2rem + 1.5rem;
+        }
+
+        & > li:last-of-type {
+            padding-bottom: 2rem;
+        }
+    }
 }

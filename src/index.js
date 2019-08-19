@@ -46,10 +46,10 @@ function Hamburger(props) {
 
 class NavMenu extends React.Component {
   handleClick = (e) => {
-    const submenu = e.target.getElementsByClassName('header__submenu')[0];
+    const submenu = document.getElementsByClassName('header__nav-sublist')[0];
 
-    e.target.classList.toggle("has-children--open");
-    submenu.classList.toggle("header__submenu--visible");
+    e.target.classList.toggle("header__nav-sublist-head--open");
+    submenu.classList.toggle("header__nav-sublist--visible");
   }
 
 
@@ -65,9 +65,9 @@ class NavMenu extends React.Component {
             links.map((elem) => {
               if (elem.key === "Posts") {
                 return (
-                  <li key={elem.key} className={`${elem.props.className ? elem.props.className : ''} has-children`} onClick={this.handleClick}>
+                  <li key={elem.key} className={`${elem.props.className ? elem.props.className : ''} header__nav-sublist-head`} onClick={this.handleClick}>
                     Posts
-                <ul className="header__submenu">
+                <ul className="header__nav-sublist">
                       <li key="standard post"><a href="standard-post.html">standard post</a></li>
                       <li key="video gallery"><a href="video-post.html">video gallery</a></li>
                       <li key="audio post"><a href="audio-post.html">audio post</a></li>
