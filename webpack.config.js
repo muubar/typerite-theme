@@ -14,24 +14,32 @@ module.exports = {
   devServer: {
     contentBase: __dirname + "/",
     port: 3000,
+    publicPath: '/'
   },
   module: {
     rules:
       [
         {
-          test: /\.(js|jsx)$/,
-          exclude: /node_modules/,
-          use: ['babel-loader', 'eslint-loader']
-        },
-        {
           test: /\.s?[ac]ss$/,
           exclude: /node_modules/,
           use: [
             MiniCssExtractPlugin.loader,
-            { loader: 'css-loader', options: { url: false, sourceMap: true } },
-            {loader: 'postcss-loader' },
+            { loader: 'css-loader', options: { url: true, sourceMap: true } },
+            { loader: 'postcss-loader' },
             { loader: 'sass-loader', options: { sourceMap: true } }
           ],
+        },
+        {
+          test: /\.(png|jp(e*)g|svg)$/,
+          use: [
+            'file-loader',
+            { loader: 'image-webpack-loader' },
+          ]
+        },
+        {
+          test: /\.(js|jsx)$/,
+          exclude: /node_modules/,
+          use: ['babel-loader', 'eslint-loader']
         },
       ]
   },
