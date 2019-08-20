@@ -85,6 +85,11 @@ html {
             width: 100%;
             border-bottom: 1px dotted $black-border;
             border-top: 1px dotted $black-border;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: white;
+            }
         }
 
         & a {
@@ -123,8 +128,7 @@ html {
     &__nav-sublist {
         display: block;
         max-height: 0;
-        font-size: 1.2rem;
-        font-weight: 300;
+        font-size: 1.3rem;
         text-transform: uppercase;
         letter-spacing: 3px;
         padding-left: 1.2rem;
@@ -147,6 +151,54 @@ html {
 
         & > li:last-of-type {
             padding-bottom: 2rem;
+        }
+    }
+
+    &__social {
+        display: flex;
+        justify-content: center;
+        margin: 6rem 0 calc(4rem + 8.5rem) 0;
+
+        & > li {
+            display: flex;
+            width: 4.4rem;
+            height: 4.4rem;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: $black-border;
+            margin: 0 0.3rem;
+        }
+    }
+
+    &__social-icon {
+        display: block;
+        width: 1.7rem;
+        height: 1.7rem;
+        padding: 1rem;
+        background-size: 1.7rem 1.7rem;
+        background-position: center center;
+        background-repeat: no-repeat;
+        transition: all 0.3s ease;
+
+        &:hover {
+            transform: scale(1.5);
+        }
+
+        &--facebook {
+            background-image: url(./assets/social/icon-facebook.svg);
+        }
+
+        &--dribble {
+            background-image: url(./assets/social/icon-dribbble.svg);
+        }
+
+        &--twitter {
+            background-image: url(./assets/social/icon-twitter.svg);
+        }
+
+        &--pinterest {
+            background-image: url(./assets/social/icon-pinterest.svg);
         }
     }
 }

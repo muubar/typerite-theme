@@ -23,7 +23,7 @@ class Header extends React.Component {
   render() {
     return (
       <header className="header">
-        <a href="index.html" className="Header__logo-container">
+        <a href="index.html" className="header__logo-container">
           <img src={logoIcon} alt="typerite's logo" className="header__logo" />
         </a>
         <Hamburger onClick={this.handleClick} />
@@ -80,9 +80,21 @@ class NavMenu extends React.Component {
             })
           }
         </ul>
+        <NavSocial />
       </nav>
     )
   }
+}
+
+function NavSocial() {
+  return (
+    <ul className="header__social">
+      <li><a href="#" className="header__social-icon header__social-icon--facebook"></a></li>
+      <li><a href="#" className="header__social-icon header__social-icon--twitter"></a></li>
+      <li><a href="#" className="header__social-icon header__social-icon--dribble"></a></li>
+      <li><a href="#" className="header__social-icon header__social-icon--pinterest"></a></li>
+    </ul>
+  )
 }
 
 ReactDOM.render(<Home />, document.getElementById("root"));
