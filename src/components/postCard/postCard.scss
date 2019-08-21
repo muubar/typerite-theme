@@ -1,0 +1,19 @@
+@import "../../base.scss";
+
+.post-card {
+    &__img-container {
+        display: block;
+        position: relative;
+    }
+
+    &__img {
+        position: absolute;
+        width: 100%;
+        transition: all 0.5s linear;
+        opacity: 0;
+
+        &--active {
+            opacity: 1;
+        }
+    }
+}
