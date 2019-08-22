@@ -4,23 +4,23 @@ import logoIcon from '../../assets/logo.svg';
 
 
 export default class Header extends React.Component {
-  handleClick = (e) => {
-    const header = document.getElementsByClassName("header")[0];
-    const navMenu = document.getElementsByClassName("header__nav")[0];
+  constructor() {
+    super();
+    this.state = { isNavVisible: false }
+  }
 
-    e.currentTarget.classList.toggle("is-active");
-    header.classList.toggle("header--visible-nav");
-    navMenu.classList.toggle("header__nav--visible");
+  handleClick = () => {
+    this.setState((prevState) => ({ isNavVisible: !prevState.isNavVisible }));
   }
 
   render() {
     return (
-      <header className="header">
+      <header className={`header ${this.state.isNavVisible ? "header--visible-nav" : ""}`}>
         <a href="index.html" className="header__logo-container">
           <img src={logoIcon} alt="typerite's logo" className="header__logo" />
         </a>
-        <Hamburger onClick={this.handleClick} />
-        <NavMenu currentPage={this.props.currentPage} />
+        <Hamburger onClick={this.handleClick} isNavVisible={this.state.isNavVisible} />
+        <NavMenu currentPage={this.props.currentPage} isNavVisible={this.state.isNavVisible} />
       </header>
     );
   }
@@ -28,7 +28,7 @@ export default class Header extends React.Component {
 
 function Hamburger(props) {
   return (
-    <button className="hamburger hamburger--spin" type="button" onClick={props.onClick}>
+    <button className={`hamburger hamburger--spin ${props.isNavVisible ? "is-active" : ""}`} type="button" onClick={props.onClick}>
       <span className="hamburger-box">
         <span className="hamburger-inner"></span>
       </span>
@@ -38,29 +38,42 @@ function Hamburger(props) {
 }
 
 class NavMenu extends React.Component {
-  handleClick = (e) => {
-    const submenu = document.getElementsByClassName('header__nav-sublist')[0];
+  constructor() {
+    super();
+    this.state = { isSublistVisible: false };
+  }
 
-    e.currentTarget.classList.toggle("header__nav-sublist-head--open");
-    submenu.classList.toggle("header__nav-sublist--visible");
+  handleClick = () => {
+    this.setState((prevState) => ({ isSublistVisible: !prevState.isSublistVisible }));
   }
 
 
   render() {
     const links = ["Home", "Posts", "About", "Contact"].map((val) => {
-      return val === this.props.currentPage ? <li key={val} className="header__nav--current-page"><a href={`${val === "Home" ? "index" : val}.html`}>{val}</a></li> : <li key={val}><a href={`${val === "Home" ? "index" : val}.html`}>{val}</a></li>
+      return (
+        val === this.props.currentPage ?
+          <li key={val} className="header__nav--current-page">
+            <a href={`${val === "Home" ? "index" : val}.html`}>{val}</a>
+          </li>
+          :
+          <li key={val}>
+            <a href={`${val === "Home" ? "index" : val}.html`}>{val}</a>
+          </li>
+      )
     });
 
     return (
-      <nav className="header__nav">
+      <nav className={`header__nav ${this.props.isNavVisible ? "header__nav--visible" : ""}`}>
         <ul className="header__nav-list">
           {
             links.map((elem) => {
               if (elem.key === "Posts") {
                 return (
-                  <li key={elem.key} className={`${elem.props.className ? elem.props.className : ''} header__nav-sublist-head`} onClick={this.handleClick}>
+                  <li key={elem.key}
+                    className={`${elem.props.className ? elem.props.className : ''} header__nav-sublist-head 
+                  ${this.state.isSublistVisible ? "header__nav-sublist-head--open" : ""}`} onClick={this.handleClick}>
                     Posts
-                <ul className="header__nav-sublist">
+                <ul className={`header__nav-sublist ${this.state.isSublistVisible ? "header__nav-sublist--visible" : ""}`}>
                       <li key="standard post"><a href="standard-post.html">standard post</a></li>
                       <li key="video gallery"><a href="video-post.html">video gallery</a></li>
                       <li key="audio post"><a href="audio-post.html">audio post</a></li>
