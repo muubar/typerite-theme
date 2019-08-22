@@ -10,6 +10,7 @@
     left: 0;
     width: 100%;
     height: $header-height;
+    z-index: 1;
     background-color: $black;
 
     &--visible-nav {
@@ -170,12 +171,6 @@
         &--pinterest {
             background-image: url(../../assets/social/icon-pinterest.svg);
         }
-    }
-}
-
-@media screen and (min-width: 400px) {
-    html {
-        font-size: 10px;
     }
 }
 
