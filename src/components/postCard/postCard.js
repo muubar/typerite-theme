@@ -15,15 +15,21 @@ export default class PostCard extends React.Component {
   }
 }
 
-function CardImage(props) {
+function CardGallery(props) {
+  if (props.postType === "gallery") {
   return (
-    <a href={props.link} className="post-card__img-container">
-      {
-        Array.isArray(props.images[0]) ? props.images.map(([imgLow, imgHigh, alt]) => <img className="post-card__img" key={alt} srcSet={`${imgLow} 1x, ${imgHigh} 2x`} src={imgLow} alt={alt} />) :
-          <img src={props.images[0]} srcSet={`${props.images[0]} 1x, ${props.images[1]} 2x`} alt={props.images[2]} />
+      <ImageGallery items={props.images} showThumbnails={false} showBullets={true} showFullscreenButton={false}
+        showPlayButton={false} autoPlay={true} />
+    )
       }
+  return (
+    <a href={props.link}>
+      <ImageGallery items={props.images} showThumbnails={false} showFullscreenButton={false}
+        showPlayButton={false} additionalClass={!props.postType ? "post-card__img" :
+          (props.postType === "audio" ? "post-card__img-audio" : "post-card__img-video")} />
     </a>
   )
+
 }
 
 function CardTitle() {

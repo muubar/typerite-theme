@@ -1,6 +1,8 @@
 @import "../../base.scss";
 
 .posts-grid {
+    display: flex;
+    flex-direction: column;
     position: relative;
     top: 10rem;
     padding: 0 2.4rem;
