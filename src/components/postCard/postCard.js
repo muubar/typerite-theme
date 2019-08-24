@@ -1,27 +1,28 @@
 import React from "react";
 import "./postCard.scss";
+import ImageGallery from 'react-image-gallery';
 
-export default class PostCard extends React.Component {
-  render() {
-    return (
-      <article>
-        <CardImage images={this.props.images} link={this.props.link} postType={this.props.postType} />
-        <CardTitle title={this.props.title} categories={this.props.categories} date={this.props.date} />
+export default function PostCard(props) {
+  return (
+    <article className="post-card">
+      <CardGallery images={props.images} link={props.link} postType={props.postType} />
+      <div className="post-card__title-container">
+        <CardTitle title={props.title} categories={props.categories} date={props.date} />
         <p>
-          {this.props.text}
+          {props.text}
         </p>
-      </article>
-    )
-  }
+      </div>
+    </article >
+  )
 }
 
 function CardGallery(props) {
   if (props.postType === "gallery") {
-  return (
+    return (
       <ImageGallery items={props.images} showThumbnails={false} showBullets={true} showFullscreenButton={false}
         showPlayButton={false} autoPlay={true} />
     )
-      }
+  }
   return (
     <a href={props.link}>
       <ImageGallery items={props.images} showThumbnails={false} showFullscreenButton={false}
@@ -32,13 +33,14 @@ function CardGallery(props) {
 
 }
 
-function CardTitle() {
+
+function CardTitle(props) {
   return (
     <header>
-      <h2></h2>
+      <h2>{props.title}</h2>
       <div>
-        <span></span>
-        <time></time>
+        <span>{props.categories}</span>
+        <time>{props.date}</time>
       </div>
     </header>
   )
