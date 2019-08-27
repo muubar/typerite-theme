@@ -8,7 +8,7 @@ export default function PostCard(props) {
       <CardGallery images={props.images} link={props.link} postType={props.postType} />
       <div className="post-card__title-container">
         <CardTitle title={props.title} categories={props.categories} date={props.date} />
-        <p>
+        <p className="post-card__body-text">
           {props.text}
         </p>
       </div>
@@ -37,10 +37,12 @@ function CardGallery(props) {
 function CardTitle(props) {
   return (
     <header>
-      <h2>{props.title}</h2>
+      <h2>
+        <a className="post-card__title-header" href="standard-post.html">{props.title}</a>
+      </h2>
       <div>
-        <span>{props.categories}</span>
-        <time>{props.date}</time>
+        <span className="post-card__title-meta">{props.categories.toString()}</span>
+        <time className="post-card__title-meta">{props.date}</time>
       </div>
     </header>
   )

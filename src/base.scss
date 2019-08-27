@@ -3,18 +3,31 @@
 $black: #111111;
 $black-2: #151515;
 $black-border: rgba(255, 255, 255, 0.04);
+$gray-body: rgba(0, 0, 0, 0.5);
 $background-gray: #f6f7f8;
+$green-hover: #267367;
 $header-height: 8.5rem;
 
 * {
     margin-block-start: 0;
     margin-block-end: 0;
+    word-break: break-all;
 }
 
 ul,
 ul ul {
     padding-inline-start: 0;
     list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Heebo", sans-serif;
+    color: black;
 }
 
 body {
