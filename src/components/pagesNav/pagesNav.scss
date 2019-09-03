@@ -34,10 +34,12 @@
             line-height: 1.5rem;
         }
     }
+}
 
-    &__prev-button {
-    }
-
-    &__next-button {
+@media screen and (min-width: 1100px) {
+    .pages-nav {
+        &__list {
+            padding: 6.4rem 4rem 0 33rem;
+        }
     }
 }
