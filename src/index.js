@@ -84,7 +84,7 @@ function Home() {
     <>
       <Header currentPage="Home" />
       <PostsGrid posts={[post1, post2, post3, post4, post5, post6]}/>
-      <PagesNav pagesNum={8} currentPage={2}/>
+      <PagesNav pagesNum={5} currentPage={2}/>
     </>
   )
 }

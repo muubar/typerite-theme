@@ -1,0 +1,43 @@
+@import "../../base.scss";
+
+.pages-nav {
+    &__list {
+        display: flex;
+        justify-content: center;
+        margin: 3.2rem auto;
+    }
+
+    &__page-button {
+        color: black;
+        font-weight: 700;
+        font-size: 1.7rem;
+        padding: 0.2rem 1.2rem;
+        margin: 0.2rem;
+        transition: all 0.3s ease-in-out;
+        text-decoration: none;
+
+        &:hover {
+            background-color: $gray-pagination-hover;
+        }
+
+        &--current {
+            background-color: black;
+            color: white;
+
+            &:hover {
+                background-color: black;
+            }
+        }
+
+        &--cursor {
+            font-size: 1.9rem;
+            line-height: 1.5rem;
+        }
+    }
+
+    &__prev-button {
+    }
+
+    &__next-button {
+    }
+}
