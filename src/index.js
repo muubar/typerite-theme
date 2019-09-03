@@ -5,6 +5,7 @@ import Header from "./components/header/header";
 import PostCard from "./components/postCard/postCard";
 import PostsGrid from "./components/postsGrid/postsGrid";
 import PagesNav from "./components/PagesNav/PagesNav";
+import SmoothScroll from "./components/smoothScroll/smoothScroll";
 
 import beetleLow from "./assets/posts/beetle-600.jpg"
 import beetleHigh from "./assets/posts/beetle-1200.jpg"
@@ -85,6 +86,7 @@ function Home() {
       <Header currentPage="Home" />
       <PostsGrid posts={[post1, post2, post3, post4, post5, post6]}/>
       <PagesNav pagesNum={5} currentPage={2}/>
+      <SmoothScroll />
     </>
   )
 }

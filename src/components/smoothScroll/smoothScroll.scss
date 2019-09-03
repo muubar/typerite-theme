@@ -1,0 +1,25 @@
+@import "../../base.scss";
+
+.scroll-top {
+    width: 6rem;
+    height: 6rem;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background-color: black;
+    background-image: url(../../assets/arrow.svg);
+    background-position: center center;
+    background-size: 3rem 3rem;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    transform: translateY(6.5rem) rotate(180deg);
+    transition: all 0.3s;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 2;
+    &--visible {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0) rotate(180deg);
+    }
+}
