@@ -4,6 +4,7 @@ import ReactDOM from "react-dom";
 import Header from "./components/header/header";
 import PostCard from "./components/postCard/postCard";
 import PostsGrid from "./components/postsGrid/postsGrid";
+import PagesNav from "./components/PagesNav/PagesNav";
 
 import beetleLow from "./assets/posts/beetle-600.jpg"
 import beetleHigh from "./assets/posts/beetle-1200.jpg"
@@ -83,6 +84,7 @@ function Home() {
     <>
       <Header currentPage="Home" />
       <PostsGrid posts={[post1, post2, post3, post4, post5, post6]}/>
+      <PagesNav pagesNum={8} currentPage={2}/>
     </>
   )
 }
