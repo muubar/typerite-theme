@@ -46,11 +46,44 @@ function Home() {
           nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua..."
           />
 
+            const post4 = <PostCard 
+  images = {[Image(beetleLow, beetleHigh, "beetle"), Image(cookiesLow, cookiesHigh, "cookies"), Image(dewLow, dewHigh, "dew plant")]}
+  link="standard-post.html" 
+  postType="gallery" 
+  title="Throwback To The" 
+  date="APR 24, 2019" 
+  categories={["lifestyle"]} 
+  text="Lorem"
+          />
+
+              const post5 = <PostCard 
+  images = {[Image(cookiesLow, cookiesHigh, "cookies")]}
+  link="standard-post.html"
+  title="a video post 22" 
+  postType="audio"
+  date="APR 24, 2019" 
+  categories={["lifestyle"]} 
+  text="Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor
+          nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliquaaaaaaaaaaaaaa
+          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa..."
+          />
+
+  const post6 = <PostCard
+    images={[Image(beetleLow, beetleHigh, "beetle"), Image(cookiesLow, cookiesHigh, "cookies"), Image(dewLow, dewHigh, "dew plant")]}
+    link="standard-post.html"
+    postType="gallery"
+    title="Throwback To Thas4e"
+    date="APR 24, 2019"
+    categories={["lifestyle"]}
+    text="Loremeasdasxsde"
+    />
+
   return (
-    <div>
+    <>
       <Header currentPage="Home" />
-      <PostsGrid posts={[post1, post2, post3]} />
-    </div>
+      <PostsGrid posts={[post1, post2, post3, post4, post5, post6]}/>
+    </>
   )
 }
 
