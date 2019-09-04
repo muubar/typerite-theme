@@ -75,7 +75,7 @@ class NavMenu extends React.Component {
                     Posts
                 <ul className={`header__nav-sublist ${this.state.isSublistVisible ? "header__nav-sublist--visible" : ""}`}>
                       <li key="standard post"><a href="standard-post.html">standard post</a></li>
-                      <li key="video gallery"><a href="video-post.html">video gallery</a></li>
+                      <li key="video post"><a href="video-post.html">video gallery</a></li>
                       <li key="audio post"><a href="audio-post.html">audio post</a></li>
                       <li key="gallery post"><a href="gallery-post.html">gallery post</a></li>
                     </ul>
