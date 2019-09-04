@@ -1,23 +1,24 @@
 import React from "react";
 import "./postsGrid.scss";
-import { throttle } from "lodash";
+import { throttle, chunk } from "lodash";
 
 export default class PostsGrid extends React.Component {
   constructor(props) {
     super(props);
     this.state = { colCount: 1 };
     this.throttledHandleWindowResize = throttle(this.HandleWindowResize, 200);
-    this.splitPosts = function (posts, num) {
-      if (num === 1) return [posts];
+  }
 
-      var postsArrs = [];
-      const size = Math.ceil(posts.length / num);
-
-      for (let i = 0; i < posts.length; i += size) {
-        postsArrs.push(posts.slice(i, i + size));
-      }
-      return postsArrs;
+  //https://stackoverflow.com/a/44122804
+  splitPosts = (posts, num) => {
+    if (num === 1) return [posts];
+    var postsArrs = [];
+    const maxColLength = Math.round(posts.length / num)
+    const nestedArray = chunk(posts, maxColLength)
+    for (var i = 0; i < num; i++) {
+      postsArrs[i] = nestedArray[i] || []
     }
+    return postsArrs
   }
 
   HandleWindowResize = () => {
