@@ -8,13 +8,15 @@ module.exports = {
   mode: mode ? 'production' : 'development',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[id].js'
+    filename: '[id].js',
+    publicPath: '/'
   },
   devtool: 'eval-source-map',
   devServer: {
     contentBase: __dirname + "/",
     port: 3000,
-    publicPath: '/'
+    publicPath: '/',
+    historyApiFallback: true
   },
   module: {
     rules:
