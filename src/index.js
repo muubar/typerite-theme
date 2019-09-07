@@ -1,25 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Route, Switch, Redirect, BrowserRouter as Router } from "react-router-dom";
 
-import Header from "./components/header/header";
-import PostsGrid from "./components/postsGrid/postsGrid";
-import PagesNav from "./components/PagesNav/PagesNav";
-import SmoothScroll from "./components/smoothScroll/smoothScroll";
-import Footer from "./components/footer/footer";
+import Home from "./components/pages/homePage";
+import StandardPost from "./components/pages/standardPostPage"
 
-import posts from "./posts";
-
-
-function Home() {
+function Routing() {
   return (
-    <>
-      <Header currentPage="Home" />
-      <PostsGrid posts={posts} />
-      <PagesNav pagesNum={5} currentPage={2} />
-      <SmoothScroll />
-      <Footer />
-    </>
+    < Router >
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/posts/standard-post" component={StandardPost} />
+        <Redirect to="/" />
+      </Switch>
+    </Router >
   )
 }
 
-ReactDOM.render(<Home />, document.getElementById("root"));
+ReactDOM.render(<Routing />, document.getElementById('root'));
