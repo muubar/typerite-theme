@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink, Link } from "react-router-dom";
 import "./header.scss";
 import logoIcon from '../../assets/logo.svg';
 
@@ -16,11 +17,11 @@ export default class Header extends React.Component {
   render() {
     return (
       <header className={`header ${this.state.isNavVisible ? "header--visible-nav" : ""}`}>
-        <a href="index.html" className="header__logo-container">
+        <Link to="/" className="header__logo-container">
           <img src={logoIcon} alt="typerite's logo" className="header__logo" />
-        </a>
+        </Link>
         <Hamburger onClick={this.handleClick} isNavVisible={this.state.isNavVisible} />
-        <NavMenu currentPage={this.props.currentPage} isNavVisible={this.state.isNavVisible} />
+        <NavMenu isNavVisible={this.state.isNavVisible} />
       </header>
     );
   }
@@ -47,18 +48,14 @@ class NavMenu extends React.Component {
     this.setState((prevState) => ({ isSublistVisible: !prevState.isSublistVisible }));
   }
 
-
   render() {
-    const links = ["Home", "Posts", "About", "Contact"].map((val) => {
+    const links = ["home", "posts", "about", "contact"].map((val) => {
       return (
-        val === this.props.currentPage ?
-          <li key={val} className="header__nav--current-page">
-            <a href={`${val === "Home" ? "index" : val}.html`}>{val}</a>
-          </li>
-          :
-          <li key={val}>
-            <a href={`${val === "Home" ? "index" : val}.html`}>{val}</a>
-          </li>
+        <li key={val}>
+          <NavLink to={`${val === "home" ? "/" : val}`} exact className="header__nav-list-link" activeClassName="header__nav--current-page">
+            {val[0].toUpperCase() + val.substr(1)}
+          </NavLink>
+        </li>
       )
     });
 
@@ -67,17 +64,24 @@ class NavMenu extends React.Component {
         <ul className="header__nav-list">
           {
             links.map((elem) => {
-              if (elem.key === "Posts") {
+              if (elem.key === "posts") {
                 return (
                   <li key={elem.key}
                     className={`${elem.props.className ? elem.props.className : ''} header__nav-sublist-head 
                   ${this.state.isSublistVisible ? "header__nav-sublist-head--open" : ""}`} onClick={this.handleClick}>
-                    Posts
+                    posts
                 <ul className={`header__nav-sublist ${this.state.isSublistVisible ? "header__nav-sublist--visible" : ""}`}>
-                      <li key="standard post"><a href="standard-post.html">standard post</a></li>
-                      <li key="video post"><a href="video-post.html">video gallery</a></li>
-                      <li key="audio post"><a href="audio-post.html">audio post</a></li>
-                      <li key="gallery post"><a href="gallery-post.html">gallery post</a></li>
+                      {
+                        ["standard post", "video post", "audio post", "gallery post"].map((val) => {
+                          return (
+                            <li key={val}>
+                              <NavLink to={`/posts/${urlify(val)}`} className="header__nav-list-link" activeClassName="header__nav--current-page">
+                                {val}
+                              </NavLink>
+                            </li>
+                          )
+                        })
+                      }
                     </ul>
                   </li>
                 )
@@ -95,10 +99,15 @@ class NavMenu extends React.Component {
 function NavSocial() {
   return (
     <ul className="header__social">
-      <li><a href="#" className="header__social-icon header__social-icon--facebook"></a></li>
-      <li><a href="#" className="header__social-icon header__social-icon--twitter"></a></li>
-      <li><a href="#" className="header__social-icon header__social-icon--dribble"></a></li>
-      <li><a href="#" className="header__social-icon header__social-icon--pinterest"></a></li>
+      <li><Link to="/" className="header__social-icon header__social-icon--facebook"></Link></li>
+      <li><Link to="/" className="header__social-icon header__social-icon--twitter"></Link></li>
+      <li><Link to="/" className="header__social-icon header__social-icon--dribble"></Link></li>
+      <li><Link to="/" className="header__social-icon header__social-icon--pinterest"></Link></li>
     </ul>
   )
+}
+
+function urlify(str) {
+  const spaceIdx = str.indexOf(" ");
+  return str.slice(0, spaceIdx) + "-" + str.slice(spaceIdx + 1);
 }
