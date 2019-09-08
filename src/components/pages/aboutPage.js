@@ -2,7 +2,6 @@ import React from "react";
 import "./aboutPage.scss";
 
 import Header from "../header/header";
-import SmoothScroll from "../smoothScroll/smoothScroll";
 import Footer from "../footer/footer";
 
 import lowImg from "../../assets/about/about-500.jpg";
@@ -44,7 +43,6 @@ export default function About() {
           </div>
         </div>
       </main>
-      <SmoothScroll />
       <Footer />
     </>
   )
