@@ -4,6 +4,7 @@ import { Route, Switch, Redirect, BrowserRouter as Router } from "react-router-d
 
 import Home from "./components/pages/homePage";
 import StandardPost from "./components/pages/standardPostPage"
+import About from "./components/pages/aboutPage";
 
 function Routing() {
   return (
@@ -11,6 +12,7 @@ function Routing() {
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/posts/standard-post" component={StandardPost} />
+        <Route path="/About" component={About} />
         <Redirect to="/" />
       </Switch>
     </Router >
