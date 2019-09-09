@@ -2,10 +2,20 @@ import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom";
 import { Route, Switch, Redirect, BrowserRouter as Router } from "react-router-dom";
 
-const StandardPost = lazy(() => import('./components/pages/standardPostPage'));
-const Contact = lazy(() => import('./components/pages/contactPage'));
-const Home = lazy(() => import('./components/pages/homePage'));
-const About = lazy(() => import('./components/pages/aboutPage'));
+function minimumWaitTime(ms, dynamicImport) {
+  return (Promise.all([delay(ms), dynamicImport])).then((result) => result[1]);
+
+  function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+}
+
+//delay dynamic import to prevent loading spinner flashing
+const FIRST_LOAD_MINIMUM_DELAY = 1000;
+const StandardPost = lazy(() => minimumWaitTime(FIRST_LOAD_MINIMUM_DELAY, import('./components/pages/standardPostPage')));
+const Contact = lazy(() => minimumWaitTime(FIRST_LOAD_MINIMUM_DELAY, import('./components/pages/contactPage')));
+const Home = lazy(() => minimumWaitTime(FIRST_LOAD_MINIMUM_DELAY, import('./components/pages/homePage')));
+const About = lazy(() => minimumWaitTime(FIRST_LOAD_MINIMUM_DELAY, import('./components/pages/aboutPage')));
 
 const Loader = <div style={{
   position: "fixed", width: "300px", height: "60px", fontSize: "36px", fontFamily: "arial",
