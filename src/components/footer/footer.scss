@@ -1,24 +1,24 @@
 @import "../../base.scss";
 
 .footer {
-    display: flex;
-    justify-content: center;
-    margin: 4rem 0 8rem 0;
-    color: $gray-body;
-    font-size: 1.6rem;
+  display: flex;
+  justify-content: center;
+  padding: 4rem 0 8rem 0;
+  color: $gray-body;
+  font-size: 1.6rem;
 
-    & a {
-        text-decoration: none;
-        color: black;
-    }
+  & a {
+    text-decoration: none;
+    color: black;
+  }
 
-    & span {
-        margin: 0 2rem;
-    }
+  & span {
+    margin: 0 2rem;
+  }
 }
 
 @media screen and (min-width: 1100px) {
-    .footer {
-        padding: 6.4rem 4rem 0 33rem;
-    }
+  .footer {
+    padding: 10.4rem 4rem 8rem 33rem;
+  }
 }
