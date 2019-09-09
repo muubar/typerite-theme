@@ -35,17 +35,27 @@ export default function contactPage() {
               Phone: +197 543 2345 </address>
           </div>
         </div>
-        <form>
+        <h3>Say Hello</h3>
+        <form id="form" className="form">
           <fieldset>
-            <label htmlFor="name">Name:</label>
-            <input type="text" id="name" name="name" required maxLength="16" placeHolder="John Doe" />
-            <label htmlFor="email">Email:</label>
-            <input type="email" id="email" name="email" required placeHolder="john@example.com" />
-            <label htmlFor="text">Website:</label>
-            <input type="text" id="text" name="text" required placeHolder="john-doe.co.uk" />
-            <label htmlFor="text">Message:</label>
-            <textarea name="msg" id="msg" required />
+            <div className="form__input-group">
+              <label htmlFor="name">Name:</label>
+              <input type="text" id="name" name="name" required maxLength="16" placeHolder="John Doe" />
+            </div>
+            <div className="form__input-group">
+              <label htmlFor="email">Email:</label>
+              <input type="email" id="email" name="email" required placeHolder="john@example.com" />
+            </div>
+            <div className="form__input-group">
+              <label htmlFor="text">Website:</label>
+              <input type="text" id="text" name="text" required placeHolder="john-doe.co.uk" />
+            </div>
+            <div className="form__input-group">
+              <label htmlFor="msg">Message:</label>
+              <textarea name="msg" className="form__textarea" id="msg" required />
+            </div>
           </fieldset>
+          <button className="form__button" type="submit" form="form">send Message</button>
         </form>
       </main>
       <Footer />
