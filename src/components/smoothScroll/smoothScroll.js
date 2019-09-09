@@ -1,6 +1,6 @@
 import React from "react";
 import "./SmoothScroll.scss";
-import { throttle } from "lodash";
+import throttle from "lodash-es/throttle";
 
 export default class SmoothScroll extends React.Component {
   constructor() {

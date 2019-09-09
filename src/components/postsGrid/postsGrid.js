@@ -1,6 +1,8 @@
 import React from "react";
 import "./postsGrid.scss";
-import { throttle, chunk } from "lodash";
+import throttle from "lodash-es/throttle";
+import chunk from "lodash-es/chunk";
+
 
 export default class PostsGrid extends React.Component {
   constructor(props) {

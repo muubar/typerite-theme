@@ -1,6 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const mode = process.env.NODE_ENV === 'production'
 
 module.exports = {
@@ -51,12 +52,14 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: './index.html',
+      favicon: "./src/favicon.ico",
       inject: true,
       minify: {
         removeComments: true,
         collapseWhitespace: false
       }
-    })
+    }),
+    new BundleAnalyzerPlugin()
   ],
 };
 
