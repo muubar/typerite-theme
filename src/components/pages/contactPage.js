@@ -41,15 +41,15 @@ export default function contactPage() {
             <fieldset className="form__fieldset">
               <div className="form__input-group">
                 <label htmlFor="name">Name:</label>
-                <input className="form__input" type="text" id="name" name="name" required maxLength="16" placeHolder="John Doe" />
+                <input className="form__input" type="text" id="name" name="name" required maxLength="16" placeholder="John Doe" />
               </div>
               <div className="form__input-group">
                 <label htmlFor="email">Email:</label>
-                <input className="form__input" type="email" id="email" name="email" required placeHolder="john@example.com" />
+                <input className="form__input" type="email" id="email" name="email" required placeholder="john@example.com" />
               </div>
               <div className="form__input-group">
                 <label htmlFor="text">Website:</label>
-                <input className="form__input" type="text" id="text" name="text" required placeHolder="john-doe.co.uk" />
+                <input className="form__input" type="text" id="text" name="text" required placeholder="john-doe.co.uk" />
               </div>
               <div className="form__input-group">
                 <label htmlFor="msg">Message:</label>
