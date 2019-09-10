@@ -17,6 +17,8 @@ const Contact = lazy(() => minimumWaitTime(FIRST_LOAD_MINIMUM_DELAY, import('./c
 const Home = lazy(() => minimumWaitTime(FIRST_LOAD_MINIMUM_DELAY, import('./components/pages/homePage')));
 const About = lazy(() => minimumWaitTime(FIRST_LOAD_MINIMUM_DELAY, import('./components/pages/aboutPage')));
 
+import ScrollToTop from "./components/scrollToTop/scrollToTop";
+
 const Loader = <div style={{
   position: "fixed", width: "300px", height: "60px", fontSize: "36px", fontFamily: "arial",
   top: "calc( 50% - 30px )", right: "calc( 50% - 200px )"
@@ -27,15 +29,17 @@ const Loader = <div style={{
 function Routing() {
   return (
     < Router >
-      <Suspense fallback={Loader}>
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/posts/standard-post" component={StandardPost} />
-          <Route path="/about" component={About} />
-          <Route path="/contact" component={Contact} />
-          <Redirect to="/" />
-        </Switch>
-      </Suspense>
+      <ScrollToTop>
+        <Suspense fallback={Loader}>
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/posts/standard-post" component={StandardPost} />
+            <Route path="/about" component={About} />
+            <Route path="/contact" component={Contact} />
+            <Redirect to="/" />
+          </Switch>
+        </Suspense>
+      </ScrollToTop>
     </Router >
   )
 }
