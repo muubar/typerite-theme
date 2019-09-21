@@ -28,12 +28,12 @@ const Loader = <div style={{
 
 function Routing() {
   return (
-    < Router >
+    <Router>
       <ScrollToTop>
         <Suspense fallback={Loader}>
           <Switch>
             <Route path="/" exact component={Home} />
-            <Route path="/posts/standard-post" component={StandardPost} />
+            <Route path="/standard-post" component={StandardPost} />
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />
             <Redirect to="/" />

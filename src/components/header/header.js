@@ -75,7 +75,7 @@ class NavMenu extends React.Component {
                         ["standard post", "video post", "audio post", "gallery post"].map((val) => {
                           return (
                             <li key={val}>
-                              <NavLink to={`/posts/${urlify(val)}`} className="header__nav-list-link" activeClassName="header__nav--current-page">
+                              <NavLink to={`${urlify(val)}`} className="header__nav-list-link" activeClassName="header__nav--current-page">
                                 {val}
                               </NavLink>
                             </li>
