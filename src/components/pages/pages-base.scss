@@ -14,9 +14,8 @@
 
 .post-header {
   &__title {
-    font-size: 4rem;
+    font-size: 4.2em;
     text-align: center;
-    margin-bottom: 4rem;
   }
   &__img {
     max-width: 100%;
@@ -25,8 +24,10 @@
 
   &__p {
     font-size: 2.1rem;
+    font-weight: 300;
     line-height: 1.83;
     margin-bottom: 3.6rem;
+    margin-top: 4rem;
     &::first-letter {
       font-weight: bold;
       font-size: 8.6rem;
@@ -34,6 +35,17 @@
       line-height: 6rem;
       font-family: serif;
       float: left;
+    }
+  }
+
+  &__author {
+    color: rgba(0, 0, 0, 0.7);
+    text-decoration: none;
+    transition: all 0.3s;
+    font-weight: 300;
+
+    &:hover {
+      color: black;
     }
   }
 }
@@ -44,10 +56,46 @@
   margin: 0 auto;
 }
 
+.generic-container {
+  max-width: 87%;
+  padding-right: 2.5rem;
+  padding-left: 2.5rem;
+  margin: 0 auto;
+}
+
 .post-p {
   font-size: 1.9rem;
   line-height: 1.8;
   margin-bottom: 3.2rem;
+
+  &__a {
+    color: #33998a;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+
+    &:hover {
+      color: #da5260;
+    }
+  }
+}
+
+.post-code {
+  background-color: #efefef;
+  padding: 2.4rem 3.2rem 3.2rem;
+  font-size: 1.4rem;
+  line-height: 2;
+  margin-bottom: 3.2rem;
+}
+
+.post-ul {
+  margin-left: 1.6rem;
+  list-style: disc;
+  margin-bottom: 3.2rem;
+
+  &__nested-list {
+    list-style: disc;
+    margin: 0.8rem 0 0.8rem 1.6rem;
+  }
 }
 
 .post-h2 {
@@ -61,6 +109,36 @@
   line-height: 1.3rem;
   margin: 7rem 0 2rem 0;
   font-weight: 500;
+}
+
+.post-blockquote {
+  margin: 4rem 0;
+  padding: 4rem 4rem;
+  border-left: 4px solid black;
+  position: relative;
+
+  &__p {
+    font-family: "Lora", serif;
+    font-size: 2.4rem;
+    line-height: 1.833;
+    color: black;
+    margin-bottom: 3.2rem;
+  }
+
+  &__cite {
+    display: block;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 1.5rem;
+    font-style: normal;
+    line-height: 1.333;
+    color: #7e7e7e;
+  }
+}
+
+.post-img {
+  max-width: 100%;
+  height: auto;
+  margin: 3.2rem 0;
 }
 
 .msgs-container {
@@ -83,6 +161,24 @@
   font-size: 3rem;
   line-height: 1.2;
   margin: 5.6rem 0 1.6rem 0;
+
+  &--top-border {
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    padding-top: 2rem;
+  }
+}
+
+.post-meta {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  &__item {
+    margin: 0 0.8rem;
+    font-size: 1.8rem;
+    font-weight: 300;
+    line-height: 1.778;
+  }
 }
 
 .form {
@@ -165,6 +261,12 @@
   .msg {
     flex-basis: 45%;
   }
+
+  .post-header {
+    &__title {
+      font-size: 4.6rem;
+    }
+  }
 }
 
 @media screen and (min-width: 1100px) {
@@ -172,5 +274,18 @@
     width: auto;
     padding: 6.4rem 4rem 0 36.2rem;
     max-width: 95rem;
+  }
+
+  .generic-container {
+    width: auto;
+    max-width: 95rem;
+    padding-right: 4rem;
+    padding-left: 36.2rem;
+  }
+
+  .post-header {
+    &__title {
+      font-size: 5.6rem;
+    }
   }
 }
