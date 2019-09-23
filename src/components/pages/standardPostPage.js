@@ -147,7 +147,7 @@ function ArticleNav() {
           <Link to="/" className="article-nav__a">Tips on Minimalist Design</Link>
         </div>
         <div className="article-nav__container">
-          <span className="article-nav__p">previous post</span>
+          <span className="article-nav__p">next post</span>
           <Link to="/" className="article-nav__a">Less Is More</Link>
         </div>
       </div>
