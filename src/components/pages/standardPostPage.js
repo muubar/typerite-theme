@@ -94,6 +94,30 @@ export default function StandardPost() {
         <ArticleNav />
         <RelatedArticlesNav />
         <CommentsContainer comments={comments} />
+        <section className="post-container">
+          <h3 className="post-h3 post-h3--no-top-margin">Add Comment</h3>
+          <form id="form" className="form">
+            <fieldset className="form__fieldset">
+              <div className="form__input-group">
+                <label htmlFor="name">Name:</label>
+                <input className="form__input" type="text" id="name" name="name" required maxLength="16" placeholder="John Doe" />
+              </div>
+              <div className="form__input-group">
+                <label htmlFor="email">Email:</label>
+                <input className="form__input" type="email" id="email" name="email" required placeholder="john@example.com" />
+              </div>
+              <div className="form__input-group">
+                <label htmlFor="text">Website:</label>
+                <input className="form__input" type="text" id="text" name="text" required placeholder="john-doe.co.uk" />
+              </div>
+              <div className="form__input-group">
+                <label htmlFor="msg">Message:</label>
+                <textarea name="msg" className="form__textarea" id="msg" required />
+              </div>
+            </fieldset>
+            <button className="form__button" type="submit" form="form">add comment</button>
+          </form>
+        </section>
         <Footer />
       </div>
     </>
