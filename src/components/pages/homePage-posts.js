@@ -48,7 +48,7 @@ text="Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt molli
 
 const post3 = <PostCard 
 images = {[Image(cookiesLow, cookiesHigh, "cookies")]}
-link="video-post"
+link="standard-post"
 title="a video post" 
 postType="video"
 date="APR 24, 2019" 
@@ -57,7 +57,7 @@ text="Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt molli
 
 const post4 = <PostCard 
 images = {[Image(slide1Low, slide1High, "a green plant"), Image(slide2Low, slide2High, "a light green plant"), Image(slide3Low, slide3High, "green leafes")]}
-link="gallery-post" 
+link="standard-post" 
 postType="gallery" 
 title="The Best Tropical Leaves Images." 
 date="APR 24, 2019" 
@@ -74,7 +74,7 @@ text="Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt molli
 
 const post6 = <PostCard
 images={[Image(guitaristLow, guitaristHigh, "guitarist")]}
-link="audio-post"
+link="standard-post"
 postType="audio"
 title="What Your Music Preference Says About You and Your Personality."
 date="APR 24, 2019"
