@@ -5,6 +5,8 @@ import "./standardPostsPage.scss"
 
 import Header from "../header/header";
 import Footer from "../footer/footer";
+import CommentsContainer from "../commentsContainer/commentsContainer";
+import comments from "./standardPostPage-comments";
 
 import lowImg from "../../assets/standard/standard-500.jpg";
 import medImg from "../../assets/standard/standard-1000.jpg";
@@ -91,6 +93,7 @@ export default function StandardPost() {
         <PostTags />
         <ArticleNav />
         <RelatedArticlesNav />
+        <CommentsContainer comments={comments} />
         <Footer />
       </div>
     </>
@@ -121,7 +124,7 @@ function ArticleNav() {
         </div>
         <div className="article-nav__container">
           <span className="article-nav__p">previous post</span>
-          <Link to="/" className="article-nav__a">Tips on Minimalist Design</Link>
+          <Link to="/" className="article-nav__a">Less Is More</Link>
         </div>
       </div>
     </nav>
