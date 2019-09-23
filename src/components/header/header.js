@@ -75,7 +75,7 @@ class NavMenu extends React.Component {
                         ["standard post", "video post", "audio post", "gallery post"].map((val) => {
                           return (
                             <li key={val}>
-                              <NavLink to={`${urlify(val)}`} className="header__nav-list-link" activeClassName="header__nav--current-page">
+                              <NavLink to={`/standard-post`} className="header__nav-list-link" activeClassName="header__nav--current-page">
                                 {val}
                               </NavLink>
                             </li>
@@ -105,9 +105,4 @@ function NavSocial() {
       <li><Link to="/" className="header__social-icon header__social-icon--pinterest"></Link></li>
     </ul>
   )
-}
-
-function urlify(str) {
-  const spaceIdx = str.indexOf(" ");
-  return str.slice(0, spaceIdx) + "-" + str.slice(spaceIdx + 1);
 }
