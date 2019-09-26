@@ -1,1 +1,2 @@
-initialize readme
+# About
+a personal implementation of [the "typerite" template design by styleshout.com](https://www.styleshout.com/free-templates/typerite/), the goal behind this project was to get more comfortable [thinking in React](https://reactjs.org/docs/thinking-in-react.html), get used to the technique of [lifting state up](https://reactjs.org/docs/lifting-state-up.html), and learn more about React in general.
